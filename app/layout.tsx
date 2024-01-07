@@ -13,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} select-none bg-cyan-900`}>
+      <body
+        className={`${inter.className} select-none overflow-hidden bg-cyan-900`}
+      >
         <Providers>
           {children}
           <Dock />

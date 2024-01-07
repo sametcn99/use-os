@@ -9,16 +9,13 @@ export default function Welcome() {
   console.log("Render TicTacToe component");
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const [size, setSize] = useState("w-[30rem] h-[30rem]");
-  const [isFull, setIsFull] = useState(false);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const isOpen = useSelector((state: RootState) => state.ticTacToeIsOpen);
   const dispatch = useDispatch();
 
   const handleMouseDown = () => {
-    if (isFull === false) {
-      setIsDragging(true);
-    }
+    setIsDragging(true);
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -42,18 +39,6 @@ export default function Welcome() {
     setIsDragging(false);
   };
 
-  const fullSwitch = () => {
-    if (isFull === false) {
-      setIsFull(true);
-      setSize("w-full h-full");
-      console.log("set welcome component to full screen");
-    } else {
-      setIsFull(false);
-      setSize("w-[30rem] h-[30rem]");
-      console.log("set welcome component to window screen");
-    }
-  };
-
   const setClose = () => {
     dispatch(setTıcTacToeOpen());
   };
@@ -67,12 +52,8 @@ export default function Welcome() {
       onMouseUp={handleMouseUp}
     >
       <div
-        className={`${size} relative bg-slate-400`}
-        style={
-          isFull
-            ? { top: 0, left: 0 }
-            : { transform: `translate(${position.x}px, ${position.y}px)` }
-        }
+        className={`relative h-[35rem] w-[25rem] bg-slate-400`}
+        style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
         ref={containerRef}
       >
         <nav
@@ -81,9 +62,6 @@ export default function Welcome() {
         >
           <div>TicTacToe</div>
           <div className="flex gap-2 font-bold">
-            <button className="w-5 hover:bg-slate-300" onClick={fullSwitch}>
-              []
-            </button>
             <button className="w-5 hover:bg-slate-300" onClick={setClose}>
               X
             </button>
