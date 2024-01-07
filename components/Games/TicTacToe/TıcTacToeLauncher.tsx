@@ -1,17 +1,18 @@
 "use client";
-import { setWelcomeOpen } from "@/lib/redux/slicers/WelcomeSlicer";
 import { RootState } from "@/lib/redux/store";
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import TicTacToe from "./TicTacToe";
+import { setTıcTacToeOpen } from "@/lib/redux/slicers/TicTacToeSlicer";
 
 export default function Welcome() {
-  console.log("Render Welcome component");
+  console.log("Render TicTacToe component");
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [size, setSize] = useState("w-[30rem] h-[30rem]");
   const [isFull, setIsFull] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isOpen = useSelector((state: RootState) => state.welcomeIsOpen);
+  const isOpen = useSelector((state: RootState) => state.ticTacToeIsOpen);
   const dispatch = useDispatch();
 
   const handleMouseDown = () => {
@@ -31,7 +32,7 @@ export default function Welcome() {
           y: prevPosition.y + newY,
         }));
         console.log(
-          `Welcome component is dragging: newX: ${newX} | newY: ${newY}`,
+          `TicTacToe component is dragging: newX: ${newX} | newY: ${newY}`,
         );
       }
     }
@@ -54,7 +55,7 @@ export default function Welcome() {
   };
 
   const setClose = () => {
-    dispatch(setWelcomeOpen());
+    dispatch(setTıcTacToeOpen());
   };
 
   if (!isOpen.value) return <></>;
@@ -78,7 +79,7 @@ export default function Welcome() {
           className="sticky top-0 flex h-[2rem] w-full justify-between bg-slate-500"
           onMouseDown={handleMouseDown}
         >
-          <div>Welcome!</div>
+          <div>TicTacToe</div>
           <div className="flex gap-2 font-bold">
             <button className="w-5 hover:bg-slate-300" onClick={fullSwitch}>
               []
@@ -89,8 +90,7 @@ export default function Welcome() {
           </div>
         </nav>
         <div className="flex h-full flex-col items-center justify-center bg-purple-500 text-center">
-          <span>Welcome to </span>
-          <span className="text-5xl font-bold">useOS()</span>
+          <TicTacToe />
         </div>
       </div>
     </section>
