@@ -1,11 +1,11 @@
 "use client";
-import ProgramConfigs from "@/Utils/Programs/ProgramConfigs";
-import ProgramLauncher from "@/Utils/Programs/ProgramLauncher";
+import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
 import { setWelcomeOpen } from "@/lib/redux/slicers/WelcomeSlicer";
 import { RootState } from "@/lib/redux/store";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { Salsa } from "next/font/google";
+import ProgramLauncher from "@/app/Utils/Programs/ProgramLauncher";
 
 // If loading a variable font, you don't need to specify the font weight
 const salsa = Salsa({

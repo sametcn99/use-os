@@ -17,7 +17,11 @@ export default function ProgramLauncher({
   size: string;
 }) {
   console.log(`Render ${name} component`);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({
+    x: 700,
+    y: 200,
+  });
+
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const handleMouseDown = () => {

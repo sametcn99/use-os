@@ -4,8 +4,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setWelcomeOpen } from "@/lib/redux/slicers/WelcomeSlicer";
 import Welcome from "./Welcome";
-import DockIcon from "@/components/Dock/Icon";
-import DesktopIcon from "@/components/Desktop/DesktopIcon";
+import DockIcon from "../../Dock/Icon";
+import DesktopIcon from "../../Desktop/DesktopIcon";
 
 export default function WelcomeDockIcon() {
   const isOpen = useSelector((state: RootState) => state.welcomeIsOpen);

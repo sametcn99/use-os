@@ -1,12 +1,12 @@
 import TicTacToeDesktopIcon, {
   TicTacToeDockIcon,
-} from "@/components/Programs/Games/TicTacToe/TicTacToeIcons";
+} from "@/app/components/Programs/Games/TicTacToe/TicTacToeIcons";
 import ToDoListDesktopIcon, {
   ToDoListDockIcon,
-} from "@/components/Programs/TodoList/TodoListIcons";
+} from "@/app/components/Programs/TodoList/TodoListIcons";
 import WelcomeDockIcon, {
   WelcomeDesktopIcon,
-} from "@/components/Programs/Welcome/WelcomeIcons";
+} from "@/app/components/Programs/Welcome/WelcomeIcons";
 
 const ProgramConfigs = {
   Welcome: {

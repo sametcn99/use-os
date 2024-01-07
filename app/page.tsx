@@ -1,4 +1,4 @@
-import Desktop from "@/components/Desktop/Desktop";
+import Desktop from "@/app/components/Desktop/Desktop";
 
 export default function Home() {
   return (

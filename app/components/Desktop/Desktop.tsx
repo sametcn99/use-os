@@ -1,11 +1,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import ProgramConfigs from "../../Utils/Programs/ProgramConfigs";
+import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
 
 export default function Desktop() {
   // Dynamically import the Time component with client-side rendering
   const TimeWidget = dynamic(
-    () => import("@/components/Programs/Widget/TimeWidget"),
+    () => import("@/app/components/Programs/Widget/TimeWidget"),
     {
       ssr: false, // Disable server-side rendering for this component
     },

@@ -2,9 +2,9 @@
 import { RootState } from "@/lib/redux/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DesktopIcon from "@/components/Desktop/DesktopIcon";
-import DockIcon from "@/components/Dock/Icon";
-import ProgramConfigs from "@/Utils/Programs/ProgramConfigs";
+import DesktopIcon from "@/app/components/Desktop/DesktopIcon";
+import DockIcon from "@/app/components/Dock/Icon";
+import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
 import { setTodoListOpen } from "@/lib/redux/slicers/TodoListSlicer";
 import TodoListLauncher from "./TodoListLauncher";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Start from "../Start/Start";
-import ProgramConfigs from "../../Utils/Programs/ProgramConfigs";
+import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
 
 export default function Dock() {
   return (
