@@ -3,9 +3,21 @@ import "./globals.css";
 import Dock from "@/components/Dock/Dock";
 import React from "react";
 import { Providers } from "@/lib/providers";
+import { Metadata, Viewport } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const metadata: Metadata = {
+  title: "useOS",
+  description:
+    "UseOS is an innovative Next.js application that brings the operating system to your fingertips.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  userScalable: true,
+};
 export default function RootLayout({
   children,
 }: {
@@ -14,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} select-none overflow-hidden bg-gradient-to-r from-indigo-950 to-pink-950 antialiased`}
+        className={`${inter.className} h-screen w-full select-none bg-gradient-to-r from-indigo-950 to-pink-950 antialiased`}
       >
         <Providers>
           {children}

@@ -52,12 +52,12 @@ export default function ProgramLauncher({
   if (isOpen.value === false) return <></>;
   return (
     <section
-      className="absolute -z-10 flex h-full w-full items-center justify-center rounded-full"
+      className="absolute "
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
       <div
-        className={`${size} relative rounded-lg bg-slate-400 `}
+        className={`${size} rounded-lg bg-slate-400`}
         style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
         ref={containerRef}
       >
