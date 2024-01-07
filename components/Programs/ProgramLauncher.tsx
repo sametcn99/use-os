@@ -5,23 +5,23 @@ export default function ProgramLauncher({
   children,
   name,
   isOpen,
+  dispatch,
+  slice,
+  size,
 }: {
   children: any;
   name: string;
   isOpen: any;
   dispatch: any;
   slice: any;
+  size: string;
 }) {
   console.log(`Render ${name} component`);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const [size, setSize] = useState("w-[30rem] h-[30rem]");
-  const [isFull, setIsFull] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const handleMouseDown = () => {
-    if (isFull === false) {
-      setIsDragging(true);
-    }
+    setIsDragging(true);
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -35,7 +35,7 @@ export default function ProgramLauncher({
           y: prevPosition.y + newY,
         }));
         console.log(
-          `Welcome component is dragging: newX: ${newX} | newY: ${newY}`,
+          `${name} component is dragging: newX: ${position.x} | newY: ${position.y}`,
         );
       }
     }
@@ -45,51 +45,34 @@ export default function ProgramLauncher({
     setIsDragging(false);
   };
 
-  const fullSwitch = () => {
-    if (isFull === false) {
-      setIsFull(true);
-      setSize("w-full h-full");
-      console.log("set welcome component to full screen");
-    } else {
-      setIsFull(false);
-      setSize("w-[30rem] h-[30rem]");
-      console.log("set welcome component to window screen");
-    }
+  const setClose = () => {
+    dispatch(slice());
   };
-
-  const setClose = () => {};
 
   if (isOpen.value === false) return <></>;
   return (
     <section
-      className="absolute -z-10 flex h-full w-full items-center justify-center"
+      className="absolute -z-10 flex h-full w-full items-center justify-center rounded-full"
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
       <div
-        className={`${size} relative bg-slate-400`}
-        style={
-          isFull
-            ? { top: 0, left: 0 }
-            : { transform: `translate(${position.x}px, ${position.y}px)` }
-        }
+        className={`${size} relative rounded-lg bg-slate-400 `}
+        style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
         ref={containerRef}
       >
         <nav
-          className="sticky top-0 flex h-[2rem] w-full justify-between bg-slate-500"
+          className="sticky top-0 flex h-[2rem] w-full flex-row items-center justify-between rounded-t-lg border bg-purple-950 pl-2 text-white "
           onMouseDown={handleMouseDown}
         >
           <div>{name}</div>
           <div className="flex gap-2 font-bold">
-            <button className="w-5 hover:bg-slate-300" onClick={fullSwitch}>
-              []
-            </button>
-            <button className="w-5 hover:bg-slate-300" onClick={setClose}>
+            <button className="w-5 hover:bg-slate-600" onClick={setClose}>
               X
             </button>
           </div>
         </nav>
-        <div className="flex h-full flex-col items-center justify-center bg-purple-500 text-center">
+        <div className="flex h-full flex-col items-center justify-center rounded-b-lg border bg-purple-950 text-center">
           {children}
         </div>
       </div>

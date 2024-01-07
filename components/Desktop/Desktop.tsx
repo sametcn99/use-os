@@ -1,12 +1,18 @@
 import React from "react";
-import WelcomeDesktopIcon from "../Welcome/WelcomeDesktopIcon";
-import TicTacToeDesktopIcon from "../Games/TicTacToe/TicTacToeIcons";
+import dynamic from "next/dynamic";
+import ProgramConfigs from "../Programs/ProgramConfigs";
 
 export default function Desktop() {
+  // Dynamically import the Time component with client-side rendering
+  const TimeWidget = dynamic(() => import("@/components/Widget/TimeWidget"), {
+    ssr: false, // Disable server-side rendering for this component
+  });
   return (
     <section className="grid h-full w-full grid-cols-12 gap-4 overflow-y-hidden p-4">
-      <WelcomeDesktopIcon />
-      <TicTacToeDesktopIcon />
+      {Object.values(ProgramConfigs).map((config) => (
+        <config.desktopIcon key={config.title} />
+      ))}
+      <TimeWidget />
     </section>
   );
 }

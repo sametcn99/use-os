@@ -1,12 +1,14 @@
 import React from "react";
 import Start from "../Start/Start";
-import WelcomeDockIcon from "../Welcome/WelcomeDockIcon";
+import ProgramConfigs from "../Programs/ProgramConfigs";
 
 export default function Dock() {
   return (
-    <nav className="fixed bottom-0 z-50 flex h-[3rem] w-full flex-row gap-2 bg-slate-500">
+    <nav className="fixed bottom-0 z-50 flex h-[rem] w-full flex-row gap-2 bg-purple-950">
       <Start />
-      <WelcomeDockIcon />
+      {Object.values(ProgramConfigs).map((config) => (
+        <config.dockIcon key={config.title} />
+      ))}
     </nav>
   );
 }

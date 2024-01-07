@@ -96,7 +96,7 @@ export default function TicTacToe() {
         {(winner || isDraw) && (
           // Show the "Play Again" button if there's a winner or it's a draw
           <button
-            className="absolute select-none rounded bg-zinc-800 px-4 py-2 text-white transition duration-300 hover:bg-zinc-900"
+            className="absolute select-none rounded bg-zinc-800 px-4 py-2 text-xl font-semibold text-white transition duration-300 hover:bg-zinc-900"
             onClick={handleRestart} // Call handleRestart when the button is clicked
           >
             Play Again

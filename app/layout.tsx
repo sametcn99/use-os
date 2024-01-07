@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} select-none overflow-hidden bg-cyan-900`}
+        className={`${inter.className} select-none overflow-hidden bg-gradient-to-r from-indigo-950 to-pink-950 antialiased`}
       >
         <Providers>
           {children}

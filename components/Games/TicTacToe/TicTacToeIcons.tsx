@@ -4,6 +4,8 @@ import { RootState } from "@/lib/redux/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TicTacToeLauncher from "./TıcTacToeLauncher";
+import DesktopIcon from "@/components/Desktop/DesktopIcon";
+import DockIcon from "@/components/Dock/Icon";
 
 export default function TicTacToeDesktopIcon() {
   const dispatch = useDispatch();
@@ -17,14 +19,19 @@ export default function TicTacToeDesktopIcon() {
 
   return (
     <>
-      <button
-        className="flex  h-fit  w-fit  flex-col gap-1 hover:underline"
-        onClick={handleClick}
-      >
-        <div className="  h-[3rem] w-[3rem] bg-slate-600 hover:bg-slate-700 " />
+      <DesktopIcon onClick={handleClick}>
         <span>TıcTacToe</span>
-      </button>
+      </DesktopIcon>
       <TicTacToeLauncher />
     </>
+  );
+}
+export function TicTacToeDockIcon() {
+  const isOpen = useSelector((state: RootState) => state.ticTacToeIsOpen);
+  if (isOpen.value === false) return <></>;
+  return (
+    <DockIcon>
+      <span>TicTacToe</span>
+    </DockIcon>
   );
 }
