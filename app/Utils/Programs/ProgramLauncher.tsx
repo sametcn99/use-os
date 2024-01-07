@@ -1,4 +1,5 @@
 "use client";
+import useSettings from "@/app/hooks/useSettings";
 import React, { useState, useRef } from "react";
 
 export default function ProgramLauncher({
@@ -17,6 +18,7 @@ export default function ProgramLauncher({
   size: string;
 }) {
   console.log(`Render ${name} component`);
+  const { pendingChanges } = useSettings();
   const [position, setPosition] = useState({
     x: 700,
     y: 200,
@@ -54,6 +56,7 @@ export default function ProgramLauncher({
   };
 
   if (isOpen.value === false) return <></>;
+
   return (
     <section
       className="absolute "
@@ -66,7 +69,7 @@ export default function ProgramLauncher({
         ref={containerRef}
       >
         <nav
-          className="sticky top-0 flex h-[2rem] w-full flex-row items-center justify-between rounded-t-lg border bg-purple-950 pl-2 text-white "
+          className={`sticky top-0 flex h-[2rem] w-full flex-row items-center justify-between rounded-t-lg border pl-2 text-white ${pendingChanges.navbarColor}`}
           onMouseDown={handleMouseDown}
         >
           <div>{name}</div>

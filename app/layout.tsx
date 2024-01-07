@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} h-screen w-full select-none bg-gradient-to-r from-indigo-950 to-pink-950 antialiased`}
+        className={`${inter.className} h-screen w-full select-none antialiased`}
       >
         <Providers>
           {children}
