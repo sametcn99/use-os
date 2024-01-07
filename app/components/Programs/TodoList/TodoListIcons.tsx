@@ -6,7 +6,6 @@ import DesktopIcon from "@/app/components/Desktop/DesktopIcon";
 import DockIcon from "@/app/components/Dock/Icon";
 import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
 import { setTodoListOpen } from "@/lib/redux/slicers/TodoListSlicer";
-import TodoListLauncher from "./TodoListLauncher";
 
 export default function ToDoListDesktopIcon() {
   const dispatch = useDispatch();
@@ -23,7 +22,6 @@ export default function ToDoListDesktopIcon() {
       <DesktopIcon onClick={handleClick}>
         <span>{ProgramConfigs.TodoList.title}</span>
       </DesktopIcon>
-      <TodoListLauncher />
     </>
   );
 }

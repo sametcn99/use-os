@@ -4,6 +4,7 @@ import welcomeReducer from "./slicers/WelcomeSlicer";
 import ticTacToeReducer from "./slicers/TicTacToeSlicer";
 import timeReducer from "./slicers/WidgetSlicer";
 import todoReducer from "./slicers/TodoListSlicer";
+import settingsReducer from "./slicers/SettingsSlicer";
 
 // Combine the individual reducers into a root reducer using combineReducers
 // The keys in the resulting state object will correspond to the names given to the individual reducers
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   ticTacToeIsOpen: ticTacToeReducer,
   time: timeReducer,
   todo: todoReducer,
+  settings: settingsReducer,
 });
 
 // Export the combined root reducer as the default export of this module

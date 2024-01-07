@@ -3,9 +3,9 @@ import { setTıcTacToeOpen } from "@/lib/redux/slicers/TicTacToeSlicer";
 import { RootState } from "@/lib/redux/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TicTacToeLauncher from "./TıcTacToeLauncher";
 import DesktopIcon from "@/app/components/Desktop/DesktopIcon";
 import DockIcon from "@/app/components/Dock/Icon";
+import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
 
 export default function TicTacToeDesktopIcon() {
   const dispatch = useDispatch();
@@ -20,9 +20,8 @@ export default function TicTacToeDesktopIcon() {
   return (
     <>
       <DesktopIcon onClick={handleClick}>
-        <span>TıcTacToe</span>
+        <span>{ProgramConfigs.TicTacToe.title}</span>
       </DesktopIcon>
-      <TicTacToeLauncher />
     </>
   );
 }
@@ -31,7 +30,7 @@ export function TicTacToeDockIcon() {
   if (isOpen.value === false) return <></>;
   return (
     <DockIcon>
-      <span>TicTacToe</span>
+      <span>{ProgramConfigs.TicTacToe.title}</span>
     </DockIcon>
   );
 }

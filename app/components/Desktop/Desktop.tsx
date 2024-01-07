@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import dynamic from "next/dynamic";
 import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
@@ -14,6 +15,9 @@ export default function Desktop() {
     <section className="grid h-full w-full grid-cols-12 gap-4 overflow-y-hidden p-4">
       {Object.values(ProgramConfigs).map((config) => (
         <config.desktopIcon key={config.title} />
+      ))}
+      {Object.values(ProgramConfigs).map((config) => (
+        <config.launcher key={config.title} />
       ))}
       <TimeWidget />
     </section>
