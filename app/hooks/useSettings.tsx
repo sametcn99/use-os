@@ -55,6 +55,7 @@ const useSettings = () => {
 
   const saveChanges = () => {
     setStoredSettings(pendingChanges);
+    window.location.reload();
   };
 
   return { pendingChanges, handleInputChange, saveChanges };
