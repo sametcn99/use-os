@@ -46,7 +46,7 @@ function TodoList() {
   };
 
   return (
-    <section className="flex h-full w-full select-text flex-col justify-between gap-4 break-words rounded-lg bg-zinc-950 p-6 text-xl shadow-md shadow-green-950 transition-all duration-1000  hover:shadow-none">
+    <section className="flex h-full w-full select-text flex-col justify-between gap-4 break-words rounded-lg bg-zinc-950 p-6 text-xl text-black shadow-md shadow-green-950 transition-all duration-1000 hover:shadow-none">
       <ul className="flex w-full flex-col justify-between gap-4 overflow-y-auto">
         {todos.map((todo: any) => (
           <li
