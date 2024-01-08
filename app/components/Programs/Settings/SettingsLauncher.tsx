@@ -1,10 +1,10 @@
-import ProgramLauncher from "@/app/Utils/Programs/ProgramLauncher";
+import ProgramLauncher from "@/app/utils/programs/ProgramLauncher";
 import { RootState } from "@/lib/redux/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Settings from "./Settings";
 import { setSettingsOpen } from "@/lib/redux/slicers/SettingsSlicer";
-import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
+import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 
 export default function SettingsLauncher() {
   const isOpen = useSelector((state: RootState) => state.settings);

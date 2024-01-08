@@ -3,8 +3,8 @@ import { RootState } from "@/lib/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import TicTacToe from "./TicTacToe";
 import { setTıcTacToeOpen } from "@/lib/redux/slicers/TicTacToeSlicer";
-import ProgramLauncher from "@/app/Utils/Programs/ProgramLauncher";
-import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
+import ProgramLauncher from "@/app/utils/programs/ProgramLauncher";
+import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 
 export default function TicTacToeLauncher() {
   const isOpen = useSelector((state: RootState) => state.ticTacToeIsOpen);

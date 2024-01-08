@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Start from "../Start/Start";
-import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
+import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 import { Settings } from "@/types/types";
 
 export default function Dock() {

@@ -1,4 +1,4 @@
-import { getRandomColor } from "@/app/Utils/utils";
+import { getRandomColor } from "@/app/utils/utils";
 import React from "react";
 
 export default function DesktopIcon({

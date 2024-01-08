@@ -1,7 +1,7 @@
 "use client";
 // Importing necessary dependencies and components
 import React, { useEffect, useState } from "react";
-import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
+import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 import { Settings } from "@/types/types";
 import useSettings from "@/app/hooks/useSettings";
 

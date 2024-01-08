@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DockIcon from "../../Dock/Icon";
 import DesktopIcon from "../../Desktop/DesktopIcon";
 import { setSettingsOpen } from "@/lib/redux/slicers/SettingsSlicer";
-import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
+import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 
 export default function SettingsDockIcon() {
   const isOpen = useSelector((state: RootState) => state.settings);

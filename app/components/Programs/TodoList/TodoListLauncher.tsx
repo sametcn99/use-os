@@ -1,7 +1,7 @@
 "use client";
 import { setTodoListOpen } from "@/lib/redux/slicers/TodoListSlicer";
-import ProgramLauncher from "@/app/Utils/Programs/ProgramLauncher";
-import ProgramConfigs from "@/app/Utils/Programs/ProgramConfigs";
+import ProgramLauncher from "@/app/utils/programs/ProgramLauncher";
+import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 import TodoList from "./TodoList";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
