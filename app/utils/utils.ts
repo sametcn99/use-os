@@ -15,3 +15,24 @@ export const getRandomColor = () => {
   // Return the randomly generated color code
   return color;
 };
+
+/**
+ * Checks the validity of an image URL by sending a HEAD request to the specified URL.
+ * @param {string} url - The URL of the image to be checked.
+ * @returns {Promise<boolean>} - A Promise that resolves to true if the image URL is valid, false otherwise.
+ */
+export async function isImageUrlValid(url: string) {
+  try {
+    // Send a HEAD request to the specified URL to check if the image exists.
+    const response = await fetch(url, { method: "HEAD" });
+
+    // Check if the response status is ok (2xx status code) to determine the validity of the image URL.
+    return response.ok;
+  } catch (error) {
+    // Log an error message if there is an issue with the request.
+    console.error("Error checking image URL:", error);
+
+    // Return false to indicate that the image URL is not valid.
+    return false;
+  }
+}

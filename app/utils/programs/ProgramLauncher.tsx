@@ -80,7 +80,7 @@ export default function ProgramLauncher({
         ref={containerRef}
       >
         <nav
-          className={`sticky top-0 flex h-[3rem] w-full flex-row items-center justify-between rounded-t-lg border pl-2 text-white`}
+          className={`fixed top-0 flex h-[3rem] w-full flex-row items-center justify-between rounded-t-lg border pl-2 text-white`}
           onMouseDown={handleMouseDown}
           style={{ background: settings?.navbarColor }}
         >

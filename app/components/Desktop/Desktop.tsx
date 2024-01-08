@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 import { Settings } from "@/types/types";
 import useSettings from "@/app/hooks/useSettings";
+import Image from "next/image";
 
 // Main Desktop component
 export default function Desktop() {
@@ -25,8 +26,22 @@ export default function Desktop() {
     <section
       // Applying dynamic styles based on settings
       className={`grid h-full w-full grid-cols-12 gap-4 overflow-y-hidden p-4`}
-      style={{ background: settings?.desktopColor, color: settings?.textColor }}
+      style={{
+        background: settings?.backgroundImageUrl
+          ? settings?.backgroundImageUrl
+          : settings?.desktopColor,
+        color: settings?.textColor,
+      }}
     >
+      {settings?.backgroundImageUrl && (
+        <Image
+          className="-z-10"
+          src={settings?.backgroundImageUrl}
+          fill={true}
+          alt={"Background Image"}
+        />
+      )}
+
       {/* Mapping through desktop icons and rendering them */}
       {Object.values(ProgramConfigs).map((config) => (
         <config.desktopIcon key={config.title} />

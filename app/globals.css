@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.default-desktop-color {
-  @apply bg-gradient-to-r from-indigo-950 to-pink-950;
-}
-
-.default-dock-color {
-  @apply bg-purple-950;
-}
-
-.default-navbar-color {
-  @apply bg-purple-950;
-}
-
-.default-text-color {
-  @apply text-white;
+:root {
+  background: black;
 }
