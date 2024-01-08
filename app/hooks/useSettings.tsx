@@ -11,10 +11,11 @@ interface Settings {
 const useSettings = () => {
   const [storedSettings, setStoredSettings] = useState<Settings>(() => {
     let storedSettings: Settings = {
-      desktopColor: "default-desktop-color",
+      desktopColor:
+        "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(9,9,121,1) 35%, rgba(0,0,0,1) 100%)",
       dockColor: "default-dock-color",
-      textColor: "default-text-color",
-      navbarColor: "default-navbar-color",
+      textColor: "white",
+      navbarColor: "#404142",
     };
 
     try {
@@ -55,7 +56,9 @@ const useSettings = () => {
 
   const saveChanges = () => {
     setStoredSettings(pendingChanges);
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   return { pendingChanges, handleInputChange, saveChanges };

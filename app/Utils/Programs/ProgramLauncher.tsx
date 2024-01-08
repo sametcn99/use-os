@@ -1,6 +1,6 @@
 "use client";
-import useSettings from "@/app/hooks/useSettings";
-import React, { useState, useRef } from "react";
+import { Settings } from "@/types/types";
+import React, { useState, useRef, useEffect } from "react";
 
 export default function ProgramLauncher({
   children,
@@ -18,7 +18,18 @@ export default function ProgramLauncher({
   size: string;
 }) {
   console.log(`Render ${name} component`);
-  const { pendingChanges } = useSettings();
+  // State to store settings
+  const [settings, setSettings] = useState<Settings | null>(null);
+
+  // useEffect to fetch settings when the component mounts
+  useEffect(() => {
+    // Retrieving stored settings from local storage
+    const storedSettings: Settings | null = JSON.parse(
+      window.localStorage.getItem("settings") || "null",
+    );
+    // Updating state with the fetched settings
+    setSettings(storedSettings);
+  }, []); // Empty dependency array ensures this effect runs only once
   const [position, setPosition] = useState({
     x: 700,
     y: 200,
@@ -69,17 +80,21 @@ export default function ProgramLauncher({
         ref={containerRef}
       >
         <nav
-          className={`sticky top-0 flex h-[2rem] w-full flex-row items-center justify-between rounded-t-lg border pl-2 text-white ${pendingChanges.navbarColor}`}
+          className={`sticky top-0 flex h-[3rem] w-full flex-row items-center justify-between rounded-t-lg border pl-2 text-white`}
           onMouseDown={handleMouseDown}
+          style={{ background: settings?.navbarColor }}
         >
           <div>{name}</div>
-          <div className="flex gap-2 font-bold">
-            <button className="w-5 hover:bg-slate-600" onClick={setClose}>
+          <div className="flex h-full gap-2 font-bold">
+            <button
+              className="h-full w-[3rem] hover:bg-red-800"
+              onClick={setClose}
+            >
               X
             </button>
           </div>
         </nav>
-        <div className="flex h-full flex-col items-center justify-center rounded-b-lg border bg-purple-950 text-center">
+        <div className="flex h-full flex-col items-center justify-center rounded-b-lg border bg-slate-900 text-center">
           {children}
         </div>
       </div>

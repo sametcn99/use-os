@@ -11,7 +11,7 @@ export default function SettingsLauncher() {
   const dispatch = useDispatch();
   return (
     <ProgramLauncher
-      size="w-[50rem] h-[50rem]"
+      size="w-[40rem] h-[30rem]"
       isOpen={isOpen}
       dispatch={dispatch}
       slice={setSettingsOpen}

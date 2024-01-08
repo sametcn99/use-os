@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Dock from "@/app/components/Dock/Dock";
 import React from "react";
 import { Providers } from "@/lib/providers";
 import { Metadata, Viewport } from "next";
@@ -30,7 +29,7 @@ export default function RootLayout({
       >
         <Providers>
           {children}
-          <Dock />
+          {/* <Dock /> */}
         </Providers>
       </body>
     </html>
