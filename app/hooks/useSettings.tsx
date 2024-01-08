@@ -60,8 +60,14 @@ const useSettings = () => {
       window.location.reload();
     }, 1000);
   };
+  const setDefault = () => {
+    localStorage.removeItem("settings");
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
 
-  return { pendingChanges, handleInputChange, saveChanges };
+  return { pendingChanges, handleInputChange, saveChanges, setDefault };
 };
 
 export default useSettings;

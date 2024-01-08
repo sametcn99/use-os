@@ -3,10 +3,15 @@ import React from "react";
 import useSettings from "@/app/hooks/useSettings";
 
 export default function Settings() {
-  const { pendingChanges, handleInputChange, saveChanges } = useSettings();
+  const { pendingChanges, handleInputChange, saveChanges, setDefault } =
+    useSettings();
   const handleSaveClick = () => {
     saveChanges();
     alert("Settings saved!");
+  };
+  const handleSetDefault = () => {
+    setDefault();
+    alert("Set settings default!");
   };
 
   const renderInputField = (label: any, value: any, onChange: any) => (
@@ -50,7 +55,7 @@ export default function Settings() {
         </button>
         <button
           className="w-fit items-end rounded-lg bg-purple-900 p-2 text-white hover:bg-purple-800"
-          onClick={handleSaveClick}
+          onClick={handleSetDefault}
         >
           DEFAULT
         </button>
