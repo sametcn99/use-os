@@ -45,8 +45,8 @@ export default function ProgramLauncher({
     if (isDragging) {
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (containerRect) {
-        const newX = e.clientX - containerRect.left;
-        const newY = e.clientY - containerRect.top;
+        const newX = e.clientX - containerRect.left - 30;
+        const newY = e.clientY - containerRect.top - 30;
         setPosition((prevPosition) => ({
           x: prevPosition.x + newX,
           y: prevPosition.y + newY,
@@ -70,7 +70,7 @@ export default function ProgramLauncher({
 
   return (
     <section
-      className="absolute "
+      className="absolute h-1 w-1"
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
