@@ -6,6 +6,7 @@ import ticTacToeReducer from "./slicers/TicTacToeSlicer";
 import timeReducer from "./slicers/WidgetSlicer";
 import todoReducer from "./slicers/TodoListSlicer";
 import settingsReducer from "./slicers/SettingsSlicer";
+import terminalReducer from "./slicers/TerminalSlicer";
 
 // Combine the individual reducers into a root reducer using combineReducers
 // The keys in the resulting state object will correspond to the names given to the individual reducers
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   time: timeReducer,
   todo: todoReducer,
   settings: settingsReducer,
+  terminal: terminalReducer,
 });
 
 // Configure the Redux store using the rootReducer

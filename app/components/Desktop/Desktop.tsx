@@ -25,7 +25,7 @@ export default function Desktop() {
   return (
     <section
       // Applying dynamic styles based on settings
-      className={`flex flex-row flex-wrap gap-4 overflow-hidden p-4`}
+      className={`flex h-full flex-row flex-wrap gap-4 overflow-hidden p-4`}
       style={{
         background: settings?.backgroundImageUrl
           ? settings?.backgroundImageUrl

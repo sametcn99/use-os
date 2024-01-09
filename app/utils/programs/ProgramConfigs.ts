@@ -2,6 +2,8 @@ import TicTacToeDesktopIcon from "@/app/components/Programs/Games/TicTacToe/TicT
 import TicTacToeLauncher from "@/app/components/Programs/Games/TicTacToe/TıcTacToeLauncher";
 import { SettingsDesktopIcon } from "@/app/components/Programs/Settings/SettingsIcons";
 import SettingsLauncher from "@/app/components/Programs/Settings/SettingsLauncher";
+import { TerminalDesktopIcon } from "@/app/components/Programs/Terminal/TerminalIcons";
+import TerminalLauncher from "@/app/components/Programs/Terminal/TerminalLauncher";
 import ToDoListDesktopIcon from "@/app/components/Programs/TodoList/TodoListIcons";
 import TodoListLauncher from "@/app/components/Programs/TodoList/TodoListLauncher";
 import Welcome from "@/app/components/Programs/Welcome/Welcome";
@@ -31,6 +33,12 @@ const ProgramConfigs = {
     description: "Todo List Program",
     desktopIcon: ToDoListDesktopIcon,
     launcher: TodoListLauncher,
+  },
+  Terminal: {
+    title: "Terminal",
+    description: "Terminal",
+    desktopIcon: TerminalDesktopIcon,
+    launcher: TerminalLauncher,
   },
 };
 export default ProgramConfigs;

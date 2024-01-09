@@ -8,7 +8,6 @@ const useSettings = () => {
     let storedSettings: Settings = {
       desktopColor:
         "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(9,9,121,1) 35%, rgba(0,0,0,1) 100%)",
-      dockColor: "#000000",
       textColor: "white",
       navbarColor: "#404142",
       backgroundImageUrl:
@@ -45,33 +44,58 @@ const useSettings = () => {
   }, [storedSettings]);
 
   const handleInputChange = (key: keyof Settings, value: string) => {
+    console.log(value);
     setPendingChanges((prevChanges) => ({
       ...prevChanges,
       [key]: value,
     }));
+    console.log(key, value);
+    console.log(pendingChanges.desktopColor);
   };
 
   const saveChanges = async () => {
     const isValidUrl = await isImageUrlValid(pendingChanges.backgroundImageUrl);
-    if (isValidUrl) {
+    if (isValidUrl || pendingChanges.backgroundImageUrl === "") {
       setStoredSettings(pendingChanges);
-      setTimeout(() => {
-        alert("Settings saved!");
-        window.location.reload();
-      }, 1000);
     } else {
       alert("Invalid image URL");
     }
+    console.log(storedSettings);
   };
+
+  const saveChangesFromTerminal = async (key: string, value: string) => {
+    await setPendingChanges((prevChanges) => ({
+      ...prevChanges,
+      [key]: value,
+    }));
+    console.log(key, value);
+    console.log(pendingChanges.desktopColor);
+    const isValidUrl = await isImageUrlValid(pendingChanges.backgroundImageUrl);
+    if (isValidUrl || pendingChanges.backgroundImageUrl === "") {
+      setStoredSettings(pendingChanges);
+    } else {
+      alert("Invalid image URL");
+    }
+    console.log(storedSettings);
+  };
+
   const setDefault = () => {
     localStorage.removeItem("settings");
     setTimeout(() => {
       alert("Set settings default!");
       window.location.reload();
     }, 1000);
+    console.log(storedSettings);
+    console.log(pendingChanges);
   };
 
-  return { pendingChanges, handleInputChange, saveChanges, setDefault };
+  return {
+    pendingChanges,
+    handleInputChange,
+    saveChanges,
+    setDefault,
+    saveChangesFromTerminal,
+  };
 };
 
 export default useSettings;
