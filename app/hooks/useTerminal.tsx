@@ -15,37 +15,6 @@ const OPTIONS: Option[] = [
   "backgroundImageUrl",
 ];
 
-// // Function to handle color commands
-// function handleColorCommand(option: Option, value: string): void {
-//   switch (option) {
-//     case "navbarColor":
-//       console.log(`Navbar Color: ${value}`);
-//       // Handle --navbarColor logic here
-//       break;
-
-//     case "desktopColor":
-//       console.log("Desktop Color command detected");
-//       // Handle --desktopColor logic here
-//       break;
-
-//     case "textColor":
-//       console.log(`Text Color: ${value}`);
-//       // Handle --textColor logic here
-//       break;
-
-//     case "backgroundUrl":
-//       console.log(`Background Url: ${value}`);
-//       // Handle --backgroundColor logic here
-//       break;
-
-//     // Add more cases for other color options as needed
-
-//     default:
-//       console.log(`Invalid input format for ${option}`);
-//       break;
-//   }
-// }
-
 // Main useTerminal function
 export default function useTerminal() {
   const { handleInputChange, saveChanges } = useSettings();

@@ -57,22 +57,10 @@ const useSettings = () => {
     const isValidUrl = await isImageUrlValid(pendingChanges.backgroundImageUrl);
     if (isValidUrl || pendingChanges.backgroundImageUrl === "") {
       setStoredSettings(pendingChanges);
-    } else {
-      alert("Invalid image URL");
-    }
-    console.log(storedSettings);
-  };
-
-  const saveChangesFromTerminal = async (key: string, value: string) => {
-    await setPendingChanges((prevChanges) => ({
-      ...prevChanges,
-      [key]: value,
-    }));
-    console.log(key, value);
-    console.log(pendingChanges.desktopColor);
-    const isValidUrl = await isImageUrlValid(pendingChanges.backgroundImageUrl);
-    if (isValidUrl || pendingChanges.backgroundImageUrl === "") {
-      setStoredSettings(pendingChanges);
+      setTimeout(() => {
+        alert("Set settings default!");
+        window.location.reload();
+      }, 1000);
     } else {
       alert("Invalid image URL");
     }
@@ -94,7 +82,6 @@ const useSettings = () => {
     handleInputChange,
     saveChanges,
     setDefault,
-    saveChangesFromTerminal,
   };
 };
 
