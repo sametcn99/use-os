@@ -31,7 +31,7 @@ export default function ProgramLauncher({
     setSettings(storedSettings);
   }, []); // Empty dependency array ensures this effect runs only once
   const [position, setPosition] = useState({
-    x: 700,
+    x: 100,
     y: 200,
   });
 
@@ -45,7 +45,7 @@ export default function ProgramLauncher({
     if (isDragging) {
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (containerRect) {
-        const newX = e.clientX - containerRect.left - 30;
+        const newX = e.clientX - containerRect.left - 70;
         const newY = e.clientY - containerRect.top - 30;
         setPosition((prevPosition) => ({
           x: prevPosition.x + newX,

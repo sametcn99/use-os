@@ -4,7 +4,6 @@ import { RootState } from "@/lib/redux/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DesktopIcon from "@/app/components/Desktop/DesktopIcon";
-import DockIcon from "@/app/components/Dock/Icon";
 import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 
 export default function TicTacToeDesktopIcon() {
@@ -23,14 +22,5 @@ export default function TicTacToeDesktopIcon() {
         <span>{ProgramConfigs.TicTacToe.title}</span>
       </DesktopIcon>
     </>
-  );
-}
-export function TicTacToeDockIcon() {
-  const isOpen = useSelector((state: RootState) => state.ticTacToeIsOpen);
-  if (isOpen.value === false) return <></>;
-  return (
-    <DockIcon>
-      <span>{ProgramConfigs.TicTacToe.title}</span>
-    </DockIcon>
   );
 }

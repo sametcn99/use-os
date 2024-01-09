@@ -3,7 +3,6 @@ import { RootState } from "@/lib/redux/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DesktopIcon from "@/app/components/Desktop/DesktopIcon";
-import DockIcon from "@/app/components/Dock/Icon";
 import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
 import { setTodoListOpen } from "@/lib/redux/slicers/TodoListSlicer";
 
@@ -23,14 +22,5 @@ export default function ToDoListDesktopIcon() {
         <span>{ProgramConfigs.TodoList.title}</span>
       </DesktopIcon>
     </>
-  );
-}
-export function ToDoListDockIcon() {
-  const isOpen = useSelector((state: RootState) => state.todo.value);
-  if (isOpen === false) return <></>;
-  return (
-    <DockIcon>
-      <span>{ProgramConfigs.TodoList.title}</span>
-    </DockIcon>
   );
 }

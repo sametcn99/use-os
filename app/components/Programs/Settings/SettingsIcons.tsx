@@ -2,20 +2,9 @@
 import { RootState } from "@/lib/redux/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DockIcon from "../../Dock/Icon";
 import DesktopIcon from "../../Desktop/DesktopIcon";
 import { setSettingsOpen } from "@/lib/redux/slicers/SettingsSlicer";
 import ProgramConfigs from "@/app/utils/programs/ProgramConfigs";
-
-export default function SettingsDockIcon() {
-  const isOpen = useSelector((state: RootState) => state.settings);
-  if (isOpen.value === false) return <></>;
-  return (
-    <DockIcon>
-      <span>{ProgramConfigs.Settings.title}</span>
-    </DockIcon>
-  );
-}
 
 export function SettingsDesktopIcon() {
   const dispatch = useDispatch();
